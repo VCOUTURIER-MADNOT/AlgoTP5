@@ -5,13 +5,14 @@
 	
 	typedef struct
 	{
+		int			nbSommets;
 		List** 		listeAdj;
 		int** 		matriceAdj;
 	} Graphe;
 
-	List** 	creerListeAdjacences(char * _fileName);
+	void 	creerListeAdjacences(Graphe * _graphe, char * _fileName);
 	void	afficherListeAdjacences(Graphe * _graphe);
-	int**	creerMatriceAdjacences(char * _fileName);
+	void	creerMatriceAdjacences(Graphe * _graphe, char * _fileName);
 	void	afficherMatriceAdjacences(Graphe * _graphe);
 
 #endif
