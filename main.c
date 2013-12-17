@@ -1,15 +1,19 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 #include "graphe.h"
-	
-int main()
-{
-	Graphe * graphe = (Graphe *) malloc(sizeof(Graphe));
+#include <stdbool.h>
+#include "file.h"
 
-	creerListeAdjacences(graphe, "graphe1.txt");
-	creerMatriceAdjacences(graphe, "graphe1.txt");
-	afficherListeAdjacences(graphe);
+int main(){
+	Graphe* graphe = creerGraphe("graphe1.txt");
+
+	afficherChemin(graphe,graphe->tabSommet[1],graphe->tabSommet[11]);
+	
+	afficherParcoursProfondeur(graphe,graphe->tabSommet[0]);
+	afficherListesAdjacences(graphe);
 	afficherMatriceAdjacences(graphe);
-	return 1;
+	
+	detruireGraphe(&graphe);
+
+	return 0;	
 }

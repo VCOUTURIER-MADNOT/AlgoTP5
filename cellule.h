@@ -1,14 +1,13 @@
-#ifndef DEF_CELLULE
-#define DEF_CELLULE
+#ifndef CELLULE_H_INCLUDED
+#define CELLULE_H_INCLUDED
 
-	typedef struct
-	{
-		struct Cell * previous;
-		struct Cell * next;
-		int word;
-	} Cell;
+typedef struct Cel{
+  int cle;
+  struct Cel* predecesseur;
+  struct Cel* successeur;
+} Cellule ;
 
-	Cell * creerCellule(int _word);
-	void detruireCellule(Cell ** _cell);
+Cellule* creerCellule(int);
+void detruireCellule(Cellule**);
 
-#endif
+#endif // CELLULE_H_INCLUDED

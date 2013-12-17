@@ -1,17 +1,26 @@
-#include "cellule.h"
+#include <stdio.h>
 #include <stdlib.h>
+#include "cellule.h"
 
-Cell * creerCellule(int _word)
-{
-	Cell * cell;
+Cellule* creerCellule(int valeur){
 
-	cell = (Cell *) malloc(sizeof(Cell));
-	cell->word = _word;
+	Cellule* cellule =(Cellule*) malloc(sizeof(Cellule));
+	cellule->cle=valeur;
+	cellule->predecesseur = NULL;
+	cellule->successeur = NULL;
 
-	return cell;
+	/*int i;
+	for(i=0;i<taille;i++){
+		cellule->cle[i]=chaine[i];
+	}*/
+	//stpcpy(cellule->cle,chaine);
+	return cellule;
 }
 
-void detruireCellule(Cell ** _cell)
-{
-	free(*_cell);
+void detruireCellule(Cellule** cellule){
+	//free((*cellule)->cle);
+	(*cellule)->predecesseur=NULL;
+	(*cellule)->successeur=NULL;
+	(*cellule)=NULL;
+	free(*cellule);
 }

@@ -1,21 +1,26 @@
-CC = gcc -Wall -O3 -ansi -pedantic
+CC = gcc -Wall -O3
+OBJETS = main.o graphe.o cellule.o liste.o outilsListe.o file.o
 
-all: main clean
+main : $(OBJETS)
+	$(CC) -o main $(OBJETS) -lm
 
-main: main.o graphe.o liste.o cellule.o
-	$(CC) -o main main.o graphe.o liste.o cellule.o -lm
+main.o : main.c graphe.h liste.h cellule.h outilsListe.h file.h
+	$(CC) -c main.c
 
-main.o: main.c
-	$(CC) -o main.o -c main.c
+graphe.o : graphe.c graphe.h
+	$(CC) -c graphe.c
 
-graphe.o: graphe.c
-	$(CC) -o graphe.o -c graphe.c
+cellule.o : cellule.c cellule.h
+	$(CC) -c cellule.c
 
-liste.o: liste.c
-	$(CC) -o liste.o -c liste.c
+liste.o : liste.c liste.h
+	$(CC) -c liste.c
 
-cellule.o: cellule.c
-	$(CC) -o cellule.o -c cellule.c
+outilsListe.o : outilsListe.c outilsListe.h
+	$(CC) -c outilsListe.c
 
-clean:
-	rm -rf *.o
+file.o : file.c file.h
+	$(CC) -c file.c
+
+clean :
+	rm main $(OBJETS)

@@ -1,16 +1,16 @@
-#ifndef DEF_LISTE
-#define DEF_LISTE
+#ifndef LISTE_H_INCLUDED
+#define LISTE_H_INCLUDED
+#include "cellule.h"
 
-	#include "cellule.h"
+typedef struct{
+  Cellule* tete;
+} Liste ;
 
-	typedef struct {
-		Cell * cell;
-	} List;
+Liste* creerListe();
+void detruireListe(Liste**);
+void inserer(Liste*,Cellule*);
+Cellule* rechercher(Liste*,char*);
+void supprimer(Liste*,Cellule*);
 
-	List * creerListe();
-	void detruireListe(List ** _list);
-	void inserer(List * _list, Cell * _cell);
-	Cell * rechercher(List * _list,  int _word);
-	void supprimer(List * _list, Cell * _cell);
 
-#endif
+#endif // LISTE_H_INCLUDED
