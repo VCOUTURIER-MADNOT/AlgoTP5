@@ -47,7 +47,7 @@ int main(){
 				afficherChemin(graphe,graphe->tabSommet[debut],graphe->tabSommet[fin]);
 				break;
 			case 4:
-				afficherParcoursProfondeur(graphe,graphe->tabSommet[debut]);
+				afficherParcoursProfondeur(graphe);
 				break;
 		}
 	}
