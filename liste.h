@@ -9,7 +9,7 @@ typedef struct{
 Liste* creerListe();
 void detruireListe(Liste**);
 void inserer(Liste*,Cellule*);
-Cellule* rechercher(Liste*,char*);
+Cellule* rechercher(Liste*,int);
 void supprimer(Liste*,Cellule*);
 
 

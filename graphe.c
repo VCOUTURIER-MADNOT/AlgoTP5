@@ -58,7 +58,6 @@ Liste** creerListesAdjacences(char* nomFichier){
 void afficherListesAdjacences(Graphe* graphe){
 	if(graphe->listeAdj != NULL){
 		int i;
-		int nombre=0;
 		for(i = 0;i<graphe->nbrSommet;i++){
 			Cellule* c = graphe->listeAdj[i]->tete;
 			printf("Liste %d :\t",i);
@@ -248,7 +247,7 @@ void afficherChemin(Graphe* g, Sommet* origine, Sommet* sommet){
 	}
 }
 
-void parcoursProfondeur(Graphe* g, Sommet* sommet){
+void parcoursProfondeur(Graphe* g){
 	int i, date;
 	for(i=0;i<g->nbrSommet;i++){
 		g->tabSommet[i]->couleur='b';
@@ -264,9 +263,7 @@ void parcoursProfondeur(Graphe* g, Sommet* sommet){
 
 void visiterPP(Graphe* g, Sommet* u, int* date){
 	u->couleur='g';
-	//printf("%d\n",*date);
 	*date=*date+1;
-	//printf("%d\n",*date);
 	u->debut=*date;
 	Cellule* j = NULL;
 
@@ -277,13 +274,12 @@ void visiterPP(Graphe* g, Sommet* u, int* date){
 		}
 	}
 	*date=*date+1;
-	//printf("%d\n",*date);
 	u->fin =*date;
 	u->couleur = 'n';
 }
 
-void afficherParcoursProfondeur(Graphe* g, Sommet* origine){
-	parcoursProfondeur(g,origine);
+void afficherParcoursProfondeur(Graphe* g, Sommet*){
+	parcoursProfondeur(g);
 
 	int i;
 	for(i=0;i<g->nbrSommet;i++){

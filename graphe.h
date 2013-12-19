@@ -36,8 +36,8 @@ Sommet* creerSommet();
 void detruireTableauSommet(Sommet**);
 void parcoursLargeur(Graphe*, Sommet*);
 void afficherChemin(Graphe*,Sommet*,Sommet*);
-void parcoursProfondeur(Graphe*,Sommet*);
+void parcoursProfondeur(Graphe*);
 void visiterPP(Graphe*, Sommet*, int*);
-void afficherParcoursProfondeur(Graphe*,Sommet*);
+void afficherParcoursProfondeur(Graphe*);
 
 #endif // GRAPHE_H_INCLUDED

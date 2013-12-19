@@ -1,26 +1,31 @@
 CC = gcc -Wall -O3
-OBJETS = main.o graphe.o cellule.o liste.o outilsListe.o file.o
+OBJETS = main.o graphe.o cellule.o liste.o outilsListe.o file.o outilsSaisie.o
 
-main : $(OBJETS)
+all: main clean
+
+main: $(OBJETS)
 	$(CC) -o main $(OBJETS) -lm
 
-main.o : main.c graphe.h liste.h cellule.h outilsListe.h file.h
+main.o: main.c graphe.h liste.h cellule.h outilsListe.h file.h
 	$(CC) -c main.c
 
-graphe.o : graphe.c graphe.h
+graphe.o: graphe.c graphe.h
 	$(CC) -c graphe.c
 
-cellule.o : cellule.c cellule.h
+cellule.o: cellule.c cellule.h
 	$(CC) -c cellule.c
 
-liste.o : liste.c liste.h
+liste.o: liste.c liste.h
 	$(CC) -c liste.c
 
-outilsListe.o : outilsListe.c outilsListe.h
+outilsListe.o: outilsListe.c outilsListe.h
 	$(CC) -c outilsListe.c
 
-file.o : file.c file.h
+file.o: file.c file.h
 	$(CC) -c file.c
 
-clean :
-	rm main $(OBJETS)
+outilsSaisie.o: outilsSaisie.c outilsSaisie.h
+	$(CC) -c outilsSaisie.c
+
+clean:
+	rm $(OBJETS)
